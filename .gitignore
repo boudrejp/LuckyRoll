@@ -2,3 +2,4 @@ data/*
 notebooks/debug/*
 *.ipynb_checkpoints
 *pycache*
+.vs*
