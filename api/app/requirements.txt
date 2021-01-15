@@ -1,0 +1,13 @@
+asgiref==3.3.1
+click==7.1.2
+Django==3.1.5
+Flask==1.1.2
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+numpy==1.19.5
+python-dotenv==0.15.0
+pytz==2020.5
+scipy==1.6.0
+sqlparse==0.4.1
+Werkzeug==1.0.1
