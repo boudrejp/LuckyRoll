@@ -59,7 +59,8 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     'core',
-    'users'
+    'users',
+    'campaigns'
 ]
 
 MIDDLEWARE = [
@@ -147,7 +148,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-AUTH_USER_MODEL = 'core.User'
+AUTH_USER_MODEL = 'users.User'
 
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK="bootstrap4"
