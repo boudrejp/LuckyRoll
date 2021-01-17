@@ -151,14 +151,17 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'users.User'
 
 # django-crispy-forms
-CRISPY_TEMPLATE_PACK="bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # django-contrib.sites
-SITE_ID=1
+SITE_ID = 1
 
 # django-allauth
-# ACCOUNT_EMAIL_VERIFICATION = "none"
-ACCOUNT_EMAIL_REQUIRED = (True)
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 # define LOGIN URL and redirects
 LOGIN_URL = "accounts/login/"
@@ -178,3 +181,12 @@ REST_FRAMEWORK = {
         'rest_framework.pagination.PageNumberPagination',
     "PAGE_SIZE": 2
 }
+
+# Following is added to enable registration with email instead of username
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
