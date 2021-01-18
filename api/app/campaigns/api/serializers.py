@@ -1,11 +1,12 @@
 from rest_framework import serializers
-from campaigns.models import Campaign
+from campaigns.models import Campaign, GameSession
 
 
 class CampaignSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField(read_only=True)
     created_at = serializers.SerializerMethodField()
     campaign_start_date = serializers.SerializerMethodField()
+    game_sessions = serializers.SerializerMethodField()
 
     class Meta:
         model = Campaign
@@ -16,9 +17,18 @@ class CampaignSerializer(serializers.ModelSerializer):
 
     def get_campaign_start_date(self, instance):
         if instance.sessions.count() > 0:
-            first_session = instance.sessions.first
-            first_session.start_time
+            first_session = instance.sessions.first()
             return first_session.start_time.strftime("%d %B %Y")
         return None
-    
 
+    def get_game_sessions(self, instance):
+        return instance.sessions.count()
+
+
+class GameSessionSerializer(serializers.ModelSerializer):
+    """Serializer for GameSession objects"""
+    campaign = serializers.StringRelatedField(read_only=True)
+
+    class Meta:
+        model = GameSession
+        fields = "__all__"

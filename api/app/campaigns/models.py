@@ -26,7 +26,7 @@ class GameSession(models.Model):
         related_name="sessions"
     )
     start_time = models.DateField(auto_now_add=True)
-    end_time = models.DateField()
+    end_time = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
