@@ -60,7 +60,8 @@ INSTALLED_APPS = [
 
     'core',
     'users',
-    'campaigns'
+    'campaigns',
+    'dice'
 ]
 
 MIDDLEWARE = [
@@ -144,6 +145,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+# Media Files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = "Uploads"
 
 STATIC_URL = '/static/'
 

@@ -1,8 +1,5 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
-from django.utils import timezone
 from django.conf import settings
-
 
 class Campaign(models.Model):
     name = models.CharField(max_length=140)
@@ -11,6 +8,7 @@ class Campaign(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
+    diceset = models.ManyToManyField("dice.DiceSet", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
