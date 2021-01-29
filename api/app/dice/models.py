@@ -109,7 +109,7 @@ class DiceRoll(models.Model):
 
     value = models.IntegerField()
     sides = models.IntegerField(choices=SIDES)
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
     die = models.ForeignKey(
         Dice, on_delete=models.CASCADE, related_name="dice_rolls"
     )
@@ -118,8 +118,8 @@ class DiceRoll(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        if self.dice is not None:
-            self.sides = self.dice.sides
+        if not self.sides:
+            self.sides = self.die.sides
 
         return super().save(*args, **kwargs)
 
@@ -129,6 +129,5 @@ class DiceRoll(models.Model):
                 raise ValidationError(
                     f"Value: {self.value} is < 1 or bigger than {self.sides}"
                 )
-
     def __str__(self):
         return f"Sides: {str(self.sides)}, Value: {str(self.value)}"

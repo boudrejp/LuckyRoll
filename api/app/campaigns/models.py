@@ -27,6 +27,7 @@ class GameSession(models.Model):
     end_time = models.DateField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
+    current_session = models.BooleanField(default=False)
+    
     def __str__(self):
         return self.name

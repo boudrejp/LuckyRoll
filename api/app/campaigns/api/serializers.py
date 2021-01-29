@@ -32,3 +32,4 @@ class GameSessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = GameSession
         fields = "__all__"
+        read_only_fields = ["current_session"]

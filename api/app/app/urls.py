@@ -40,6 +40,8 @@ urlpatterns = [
 
     path("api/",
          include("campaigns.api.urls")),
+    path("api/",
+        include("dice.api.urls")),
     #  login via REST API
     path('api-auth/', include('rest_framework.urls')),
     # login via REST API

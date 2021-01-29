@@ -39,4 +39,8 @@ class GameSessionViewSet(viewsets.ModelViewSet):
             name=serializer.validated_data['name']
         ).exists():
             raise ValidationError("You have a Session with this name already.")
-        serializer.save(campaign=campaign)
+        
+        is_current = not campaign.sessions.filter(
+            current_session=True).exists()
+
+        serializer.save(campaign=campaign, current_session=is_current)

@@ -16,4 +16,4 @@ def update_dice_luck_level(sender, instance, *args, **kwargs):
         if die.dice_rolls > 7:
             die.luckiness = 2
             die.save()
-        
+
