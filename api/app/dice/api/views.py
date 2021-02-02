@@ -37,10 +37,6 @@ class DiceRollViewSet(viewsets.ModelViewSet):
         die = get_object_or_404(Dice, pk=dice_pk)
         game_session = get_object_or_404(GameSession, pk=game_session_id)
         
-        filtered_sessions = GameSession.objects.filter(
-            campaign=instance.campaign, 
-            current_session=True)
-        current = not filtered_sessions.exists()
 
         serializer.save(die=die, 
             game_session=game_session, 
