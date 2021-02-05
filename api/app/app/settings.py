@@ -57,7 +57,7 @@ INSTALLED_APPS = [
 
     # package for good looking forms
     'crispy_forms',
-
+    
     'core',
     'users',
     'campaigns',
@@ -160,7 +160,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # django-contrib.sites
 SITE_ID = 1
-
 # django-allauth
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
@@ -169,7 +168,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 # define LOGIN URL and redirects
-LOGIN_URL = "accounts/login/"
+LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT = "/"
 LOGOUT_REDIRECT = "/"
 
